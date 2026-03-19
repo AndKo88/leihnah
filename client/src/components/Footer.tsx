@@ -2,7 +2,7 @@
  * Warm forest green background, cream text
  */
 import { MapPin, Mail, Phone } from "lucide-react";
-import { toast } from "sonner";
+import { Link } from "wouter";
 
 export default function Footer() {
   const scrollTo = (id: string) => {
@@ -53,13 +53,30 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-semibold text-sm text-white mb-4">Rechtliches</h4>
             <ul className="space-y-2.5">
-              {["Impressum", "Datenschutz", "AGB", "Cookie-Einstellungen"].map(item => (
-                <li key={item}>
-                  <button onClick={() => toast.info("Feature coming soon")} className="text-sm text-white/60 hover:text-white transition-colors">
-                    {item}
-                  </button>
-                </li>
-              ))}
+              <li>
+                <Link href="/impressum">
+                  <span className="text-sm text-white/60 hover:text-white transition-colors cursor-pointer">
+                    Impressum
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/datenschutz">
+                  <span className="text-sm text-white/60 hover:text-white transition-colors cursor-pointer">
+                    Datenschutz
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <button className="text-sm text-white/60 hover:text-white transition-colors">
+                  AGB
+                </button>
+              </li>
+              <li>
+                <button className="text-sm text-white/60 hover:text-white transition-colors">
+                  Cookie-Einstellungen
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -93,15 +110,21 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-xs text-white/40">
-            &copy; 2026 leihnah GmbH. Alle Rechte vorbehalten.
+            &copy; 2026 PROLEA FZCO. Alle Rechte vorbehalten.
           </p>
-          <p className="text-xs text-white/40">
-            Made with care in Berlin
-          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/impressum">
+              <span className="text-xs text-white/40 hover:text-white/70 transition-colors cursor-pointer">Impressum</span>
+            </Link>
+            <Link href="/datenschutz">
+              <span className="text-xs text-white/40 hover:text-white/70 transition-colors cursor-pointer">Datenschutz</span>
+            </Link>
+            <p className="text-xs text-white/40">
+              Made with care in Berlin
+            </p>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
-
-
